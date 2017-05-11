@@ -1,0 +1,10 @@
+wroclaw/jemiol/buildings/BuildingAbstract.class
+wroclaw/jemiol/enums/Gender.class
+wroclaw/jemiol/enums/BuildingBonus.class
+wroclaw/jemiol/entity/Shepherd.class
+wroclaw/jemiol/runnable/Runnable.class
+wroclaw/jemiol/util/RandomVar.class
+wroclaw/jemiol/buildings/Sheepfold.class
+wroclaw/jemiol/entity/SheepEntity.class
+wroclaw/jemiol/enums/SheepBonusGift.class
+wroclaw/jemiol/entity/Player.class
