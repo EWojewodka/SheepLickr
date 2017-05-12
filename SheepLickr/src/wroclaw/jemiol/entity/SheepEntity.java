@@ -14,12 +14,16 @@ import wroclaw.jemiol.util.RandomVar;
 
 public class SheepEntity {
 	private int posX, posY;
-	private SheepBonusGift bonus;
-	private Gender gender;
-	private Religion religion;
 	private boolean alive;
 	private int speedOfFalling;
 	private int maxRespWidth;
+	private double religiosity;
+	private int score;
+	private SheepBonusGift bonus;
+	private Gender gender;
+	private Religion religion;
+
+	private Player player = GameManager.getInstance().getPlayerManager().getPlayer();
 
 	public SheepEntity(int maxRespWidth) {
 		posX = RandomVar.getRandomIntBetween(0, maxRespWidth);
@@ -29,7 +33,21 @@ public class SheepEntity {
 		this.alive = true;
 		this.speedOfFalling = RandomVar.getRandomIntBetween(1, 4);
 		this.religion = RandomVar.getRandomReligion();
+		this.religiosity = countBonusForReligion();
+		this.score = (int) (religiosity + 3);
 		GameManager.getInstance().getTimeManager().getTimer().scheduleAtFixedRate(updateSheep(), 0, 10);
+	}
+
+	private boolean checkCompatybilityOfReligion() {
+		return player.getReligion() == this.religion;
+	}
+
+	private double countBonusForReligion() {
+		if (checkCompatybilityOfReligion()) {
+			return 50 * player.getReligionRatio();
+		} else {
+			return (-1 * (player.getReligionRatio() * 10));
+		}
 	}
 
 	public void sheepFalling() {
@@ -106,6 +124,18 @@ public class SheepEntity {
 
 	public void setMaxRespWidth(int maxRespWidth) {
 		this.maxRespWidth = maxRespWidth;
+	}
+
+	public double getReligiosity() {
+		return religiosity;
+	}
+
+	public void setReligiosity(double religiosity) {
+		this.religiosity = religiosity;
+	}
+
+	public int getScore() {
+		return score;
 	}
 
 }

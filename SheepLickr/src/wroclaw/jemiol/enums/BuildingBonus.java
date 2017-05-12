@@ -20,24 +20,24 @@ public enum BuildingBonus {
 	/**
 	 * 
 	 */
-	CYCLIC_SHEEPHERD_RESP("New sheepherd for 60 sec"),
+	CYCLIC_SHEEPHERD_RESP("New sheepherd"),
 	/**
 	 * 
 	 */
-	SHEEPHERD_REGENERATION("Cooldown reduction");
+	SHEEPHERD_REGENERATION("Cooldown reduction"); //TODO ADD TO BONUS UNWRAPPER AFTER POWERS
 
-	private String name;
+	private String description;
 
-	private BuildingBonus(String name) {
-		this.name = name;
+	private BuildingBonus(String description) {
+		this.description = description;
 	}
 
-	public String getName() {
-		return name;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

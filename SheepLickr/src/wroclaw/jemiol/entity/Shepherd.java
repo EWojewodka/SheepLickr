@@ -21,22 +21,23 @@ public class Shepherd {
 	private int posX, posY;
 	private String name;
 	private Set<Powers> powers;
-	private Set<Gender> inclinations;
+	private Gender inclinations;
 	private Gender gender;
 	private double timeAliveInSec;
 
 	public Shepherd() throws JSONException, FileNotFoundException {
+		this.powers = new HashSet<>();
+		this.powers.add(RandomVar.getRandomPowers());
 		this.gender = RandomVar.getRandomGender();
 		this.name = getRandomName();
-		this.inclinations = new HashSet<Gender>();
-		this.powers = RandomVar.getRandomPowers();
+		this.inclinations = RandomVar.getRandomGender();
 		this.posX = RandomVar.getRandomIntBetween(0, 400);
 		this.posY = GameManager.getInstance().getShephardManager().getMaxRespHeight() - 100;
 		GameManager.getInstance().getTimeManager().getTimer().schedule(shepherdUpdate(), 0, 10);
 		GameManager.getInstance().getTimeManager().getTimer().scheduleAtFixedRate(
 				GameManager.getInstance().getShephardManager().getBonusFromShepherd(this), 1000, 1000);
 	}
-
+	
 	private TimerTask shepherdUpdate() {
 		return new TimerTask() {
 			// TODO INFO
@@ -101,11 +102,11 @@ public class Shepherd {
 		this.powers = powers;
 	}
 
-	public Set<Gender> getInclinations() {
+	public Gender getInclinations() {
 		return inclinations;
 	}
 
-	public void setInclinations(Set<Gender> inclinations) {
+	public void setInclinations(Gender inclinations) {
 		this.inclinations = inclinations;
 	}
 

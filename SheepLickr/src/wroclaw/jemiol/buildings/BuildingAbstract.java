@@ -73,23 +73,19 @@ public abstract class BuildingAbstract extends JLabel implements MouseListener {
 		info.setVisible(true);
 		info.setOpaque(true);
 		info.setSize(this.getSize());
-		info.setText("<html>"+ 
-				type.getName() + "<br/>" +
-				"Level: " + level + "<br/>" +
-				"Bonus: " + buildingBonus.getName() + "<br/>" + 
-				"Cost at next level: " + cost + "<br/>" + 
-		"</html>");
+		info.setText("<html>" + type.getName() + "<br/>" + "Level: " + level + "<br/>" + "Bonus: "
+				+ buildingBonus.getDescription() + "<br/>" + "Cost at next level: " + cost + "<br/>" + "</html>");
 		info.setBackground(new Color(187, 207, 250));
 		info.setForeground(Color.black);
 		info.setHorizontalAlignment(JLabel.CENTER);
 		this.buildInfo = info;
 		this.add(buildInfo);
 	}
-	
+
 	protected void buy() {
 		GameManager.getInstance().getBuildingManager().buyBuilding(type);
 	}
-	
+
 	protected void hideInfo() {
 		this.remove(buildInfo);
 	}
@@ -135,7 +131,7 @@ public abstract class BuildingAbstract extends JLabel implements MouseListener {
 	}
 
 	public int getCostAtNextLevel() {
-		return (int) (cost*level * 1.8);
+		return (int) (cost * level * 1.8);
 	}
 
 	public void setCostAtNextLevel(int costAtNextLevel) {

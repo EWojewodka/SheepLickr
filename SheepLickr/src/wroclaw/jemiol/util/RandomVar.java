@@ -3,10 +3,12 @@ package wroclaw.jemiol.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
-import org.json.*;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import wroclaw.jemiol.enums.Gender;
 import wroclaw.jemiol.enums.Powers;
@@ -34,23 +36,19 @@ public class RandomVar {
 		}
 	}
 
-	public static Set<Powers> getRandomPowers() {
-		Set<Powers> powerList = new HashSet<>();
-		for (int i = 0; i < 3; i++) {
-			double ratio = Math.random();
-			if (ratio >= 0.5 && ratio < 0.7) {
-				powerList.add(Powers.FAST_HAND);
-			} else if (ratio >= 0.7 && ratio < 0.8) {
-				powerList.add(Powers.HAIRCUT);
-			} else if (ratio >= 0.8 && ratio < 0.87) {
-				powerList.add(Powers.SHEEP_FRIENDLY);
-			} else if (ratio >= 0.87 && ratio < 0.93) {
-				powerList.add(Powers.STRONGMAN);
-			} else if (ratio >= 0.93 && ratio <= 0.95) {
-				powerList.add(Powers.BOSS);
-			}
+	public static Powers getRandomPowers() {
+		double ratio = Math.random();
+		if (ratio >= 0.5 && ratio < 0.7) {
+			return Powers.FAST_HAND;
+		} else if (ratio >= 0.7 && ratio < 0.8) {
+			return Powers.HAIRCUT;
+		} else if (ratio >= 0.8 && ratio < 0.87) {
+			return Powers.SHEEP_FRIENDLY;
+		} else if (ratio >= 0.87 && ratio < 0.93) {
+			return Powers.STRONGMAN;
+		} else {
+			return Powers.BOSS;
 		}
-		return powerList;
 	}
 
 	public static Religion getRandomReligion() {

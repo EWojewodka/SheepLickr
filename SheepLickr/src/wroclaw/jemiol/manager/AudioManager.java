@@ -20,9 +20,9 @@ public class AudioManager {
 		try {
 			audioInputStream = AudioSystem.getAudioInputStream(new File("src/resources/mainThemeAudio.wav"));
 			clip = (Clip) AudioSystem.getLine(new DataLine.Info(Clip.class, audioInputStream.getFormat()));
-//			 clip.open(audioInputStream);
-//			 clip.loop(Clip.LOOP_CONTINUOUSLY);
-//			 clip.start();
+			// clip.open(audioInputStream);
+			// clip.loop(Clip.LOOP_CONTINUOUSLY);
+			// clip.start();
 			// TODO CHANGE AUDIO AFTER GUI
 		} catch (Exception ex) {
 			ex.printStackTrace();

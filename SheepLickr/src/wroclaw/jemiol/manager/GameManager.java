@@ -17,6 +17,7 @@ public enum GameManager {
 	ShephardManager shephardManager;
 	AudioManager audioManager;
 	BuildingManager<?> buildingManager;
+	PanelsManager panelsManager;
 
 	@SuppressWarnings("rawtypes")
 	private GameManager() {
@@ -24,6 +25,7 @@ public enum GameManager {
 		sheepManager = new SheepManager();
 		shephardManager = new ShephardManager();
 		buildingManager = new BuildingManager();
+		panelsManager = new PanelsManager();
 		try {
 			audioManager = new AudioManager();
 			fontLoader = new FontLoader();
@@ -35,6 +37,10 @@ public enum GameManager {
 
 	public static GameManager getInstance() {
 		return GameManager.INSTANCE;
+	}
+	
+	public PanelsManager getPanelsManager() {
+		return panelsManager;
 	}
 
 	public BuildingManager<?> getBuildingManager() {

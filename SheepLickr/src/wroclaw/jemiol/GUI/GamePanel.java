@@ -41,6 +41,10 @@ public class GamePanel extends JPanel implements MouseInputListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		Shepherd shepherdClicked = GameManager.getInstance().getShephardManager().isShepherdClicked(e);
+		if(shepherdClicked != null) {
+			GameManager.getInstance().getShephardManager().fillShepherdInfoLabel(shepherdClicked);
+		}
 	}
 
 	@Override

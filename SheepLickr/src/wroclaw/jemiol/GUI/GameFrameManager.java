@@ -28,8 +28,11 @@ public class GameFrameManager extends JFrame {
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		gameFrameTask();
 		setCursor(Toolkit.getDefaultToolkit().createCustomCursor(new ImageIcon("src/resources/cursor.png").getImage(),
-				new Point(0, 0), "PunchCursor"));
+				new Point(0, 0), "HandCursor"));
+		GameManager.getInstance().getPanelsManager().setLeftPanel(leftPanel);
+		GameManager.getInstance().getPanelsManager().setGamePanel(gamePanel);
 	}
+	
 
 	public void gameFrameTask() {
 		GameManager.getInstance().getTimeManager().getTimer().scheduleAtFixedRate(new TimerTask() {

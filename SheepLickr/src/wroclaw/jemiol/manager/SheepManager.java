@@ -26,8 +26,7 @@ public class SheepManager {
 	}
 
 	public void startSheepManager() {
-		GameManager.getInstance().getTimeManager().getTimer().schedule(addSheep(), 0,
-				timeOfSheepResp);
+		GameManager.getInstance().getTimeManager().getTimer().schedule(addSheep(), 0, timeOfSheepResp);
 		GameManager.getInstance().getTimeManager().getTimer().schedule(removeSheep(), 0,
 				TimeConversion.MILISECOND * 100);
 	}
@@ -36,7 +35,8 @@ public class SheepManager {
 		Player player = GameManager.getInstance().getPlayerManager().getPlayer();
 		for (SheepEntity sheep : GameManager.getInstance().getSheepManager().getSheepList()) {
 			if (sheep.getSheepRectangle().contains(e.getX(), e.getY())) {
-				player.setScore(2);
+				player.setScore(sheep.getScore());
+				System.out.println(sheep.getScore());
 				BonusDistributor.getSheepBonus(sheep);
 				GameManager.getInstance().getSheepManager().getRemovedList().add(sheep);
 			}

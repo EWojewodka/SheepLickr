@@ -33,7 +33,7 @@ public class LeftPanel extends JPanel {
 		buildingsPanel = new BuildingsPanel();
 		add(Box.createRigidArea(new Dimension(0, 250)));
 		add(buildingsPanel);
-		add(Box.createRigidArea(new Dimension(0, 200)));
+		add(Box.createRigidArea(new Dimension(200, 200)));
 		add(pauseButton);
 	}
 
